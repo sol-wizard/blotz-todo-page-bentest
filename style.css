@@ -50,3 +50,8 @@ button:hover {
   border-radius: 6px;
   cursor: pointer;
 }
+
+#task-list li.done {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
