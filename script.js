@@ -5,6 +5,7 @@ const tasks = [];
 const input = document.getElementById("task-input");
 const addButton = document.getElementById("add-button");
 const list = document.getElementById("task-list");
+const clearDoneButton = document.getElementById("clear-done-button");
 
 // Draw the whole list again from the tasks array
 function render() {
@@ -34,5 +35,13 @@ addButton.addEventListener("click", () => {
   // 3. Change: add to the array, then draw the list again
   tasks.push({ text: text, done: false });
   input.value = "";
+  render();
+});
+
+// Remove every done task from the array, then draw the list again
+clearDoneButton.addEventListener("click", () => {
+  const notDone = tasks.filter((task) => !task.done);
+  tasks.length = 0;
+  tasks.push(...notDone);
   render();
 });
